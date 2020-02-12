@@ -152,3 +152,48 @@ yarn --version
 - "Edit" - "Preference" - "profiles" 탭
   - "New"로 생성
   - Custom font 체크 후 지정
+
+### zsh
+
+#### 설치
+
+```bash
+sudo apt-get install zsh
+```
+
+#### 설치 확인 및 적용
+
+```bash
+# 설치 확인
+zsh --version
+
+# 적용(기본 쉘 변경)
+chsh -s /usr/bin/zsh
+```
+
+### oh-my-zsh
+
+#### 설치
+
+```bash
+# curl 이용
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# wget 이용
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+```
+
+#### 테마 변경
+
+- [테마 확인](https://github.com/robbyrussell/oh-my-zsh/wiki/External-themes)
+
+- ```bash
+  vi ~/.zshrc
+  
+  # THEME="rubbyrussell" 부분을
+  # THEHE="<변경하고 싶은 테마 이름>" 으로 바꾸고 저장
+  
+  source ~/.zshrc
+  ```
+
+  
