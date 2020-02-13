@@ -169,6 +169,9 @@ zsh --version
 
 # 적용(기본 쉘 변경)
 chsh -s /usr/bin/zsh
+
+# 쉘 변경 확인
+echo $SHELL
 ```
 
 ### oh-my-zsh
@@ -196,4 +199,78 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
   source ~/.zshrc
   ```
 
+
+#### 플러그인 설치
+
+- alias-tips 기능
+
+- autosuggestion 기능
+
+- syntax-highlighting 기능
+
+- ( git은 기본 내장 플러그인이므로 설치 필요없음)
+
+- [https://github.com/zsh-users](https://github.com/zsh-users) 참고
+
+- ```bash
+  # move plugin directory
+  $ cd ~/.oh-my-zsh/plugins/
   
+  # install plugin
+  $ git clone https://github.com/djui/alias-tips
+  $ git clone https://github.com/zsh-users/zsh-autosuggestions
+  $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+  ```
+
+#### 플러그인 적용
+
+```bash
+$ vi ~/.zshrc
+
+# 플러그인 설정
+plugins=( git alias-tips zsh-autosuggestions zsh-syntax-highlighting )
+
+
+# 맨 끝에 추가
+source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.oh-my-zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
+```
+
+#### new Line 적용
+
+```bash
+# agnoster theme 적용 기준, theme 폴더의 해당 테마 설정 파일 open
+vi ~/.oh-my-zsh/themes/agnoster.zsh-theme
+```
+
+```markdown
+# 아래와 같이 newline 적용
+build_prompt() {
+  RETVAL=$?
+  prompt_status
+  prompt_virtualenv
+  prompt_context
+  prompt_dir
+  prompt_git
+  prompt_bzr
+  prompt_hg
+  prompt_newline //이부분을 추가 꼭 순서 지켜서
+  prompt_end
+}
+
+# 해당 prompt 함수 추가
+prompt_newline() {
+  if [[ -n $CURRENT_BG ]]; then
+    echo -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR
+%{%k%F{blue}%}$SEGMENT_SEPARATOR"
+  else
+    echo -n "%{%k%}"
+  fi
+
+  echo -n "%{%f%}"
+  CURRENT_BG=''
+}
+```
+
+
+
