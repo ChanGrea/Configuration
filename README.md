@@ -136,6 +136,59 @@ npm install -g yarn
 yarn --version
 ```
 
+### Sdkman
+
+#### 설치
+
+[https://sdkman.io/install](https://sdkman.io/install)
+
+```bash
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+```
+
+#### 확인
+
+```bash
+sdk version
+```
+
+### JDK
+
+#### prerequisite
+
+- sdkman 설치
+
+#### 설치
+
+```bash
+# 설치 가능 목록 확인
+sdk list java
+
+# 설치
+sdk install java x.y.z-amzn
+```
+
+### Maven
+
+#### prerequisite
+
+- sdkman 설치
+
+#### 설치
+
+```bash
+# 설치 가능 목록 확인
+sdk list maven
+
+# 설치
+sdk install maven 3.6.3
+```
+
+
+
+
+
 ## 기타
 
 ---
